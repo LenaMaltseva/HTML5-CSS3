@@ -1,0 +1,25 @@
+@mixin flexBoxRow () {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flexBoxCol ($_just) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: $_just;
+    align-items: flex-start;
+}
+@mixin menuHover {
+    &:hover {
+        color: $colorBlack;
+    }
+}
+@mixin linkHover () {
+    &:hover {
+        color: $colorGreen;
+        text-decoration: underline;
+    }
+}

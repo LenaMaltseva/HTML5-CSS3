@@ -1,0 +1,461 @@
+@import 'colors';
+@import 'mixins';
+@import 'basics';
+
+.top-border {
+    height: 5px;
+    background-color: $colorGreen;
+    border: none;
+}
+
+/* Header */
+.header {
+    background-color: $colorWhite;
+    padding: 30px 35px;
+    @include flexBoxRow();
+    align-items: flex-end; 
+    position: relative;
+    @media (max-width: 767px) {
+        display: block;
+        padding: 30px;
+    }  
+}
+
+.logo {
+    height: 60px;
+    @include flexBoxCol(space-between);
+    @media (max-width: 767px) {
+        height: 80px;
+        display: block;
+        text-align: center;
+    }
+    &__name {
+        color: $bgBlack-3;
+        font-size: 36px;
+        line-height: 36px;
+        text-transform: uppercase;
+        @media (max-width: 399px) {
+            font-size: 30px;
+        }
+        &::first-letter {
+            font-size: 46px;
+            line-height: 46px;
+            @media (max-width: 399px) {
+                font-size: 40px;
+            }
+        }
+    }
+    &__slogan {
+        color: #999;
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+
+.socials {
+    width: 250px;
+    height: 50px;
+    padding: 9px 13px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: $colorGreen;
+    @include flexBoxRow();
+    &__icon {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        border-radius: 50%;
+        background-color: $bgBlack-1;
+        &_dark-blue:hover {
+            background-color: rgb(56, 125, 204);
+        }
+        &_blue:hover {
+            background-color: #00acee;
+        }
+        &_red:hover {
+            background-color: rgba(255, 0, 0, 0.842);
+        }
+        &_orange:hover {
+            background-color: rgba(255, 136, 0, 0.842);
+        }
+    }
+    &_top-right {
+        position: absolute;
+        top: 0px;
+        right: 35px;
+    }
+}
+
+.account-menu {
+    list-style: none;
+    @include flexBoxRow();
+    &__item {
+        color: $colorGreen;
+        font-size: 12px;
+        line-height: 14.4px;
+        display: block;
+        padding: 0 5px;
+        &:not(:first-of-type) {
+            border-left: 1px solid $colorGreen;
+        }
+        @media (max-width:767px) {
+            border-left: 1px solid $colorGreen;
+        }
+        @include menuHover();
+    }
+}
+
+.navbar {
+    height: 70px;
+    padding: 20px 30px;
+    background-color: $colorGreen;
+    @include flexBoxRow();
+    @media (max-width:1199px) {
+        @include flexBoxCol(space-around);
+        height: auto
+    }
+}
+
+.menu {
+    list-style: none;
+    @include flexBoxRow();
+    justify-content: flex-start;
+    @media (max-width: 991px) {
+        justify-content: center;
+    }
+    &__item {
+        color: $colorWhite;
+        font-size: 13px;
+        line-height: 13px;
+        text-transform: uppercase;
+        display: block;
+        padding-right: 20px;
+        @include menuHover();
+        @media (max-width: 1199px) {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.search-form {
+    outline: 1px solid #ddd;
+    height: 30px;
+    display: inline-flex;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+    &__input {
+        width: 215px;
+        height: 30px;
+        padding: 10px;
+        border: none;
+        background-color: $colorWhite;
+        color: #7f7f7f;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 14.4px;
+        text-align: left;
+        &:focus {
+            color: $colorGreen;
+            outline: none;
+        }
+        @media (max-width: 991px) {
+            width: 75%;
+        }
+    }
+    &__button {
+        width: 66px;
+        height: 30px;
+        border: none;
+        border-left: 1px solid #ddd;
+        background-color: $colorWhite;
+        color: $colorGreen;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 14.4px;
+        text-transform: uppercase;
+        cursor: pointer;
+        @include menuHover();
+        @media (max-width: 991px) {
+            width: 25%;
+        }
+    }
+}
+
+/* Slider */
+.slider {
+    height: 100%;
+    padding: 30px;
+    @media (max-width: 767px) {
+        width: 100%;
+        padding: 0 2px;
+    }
+    background-color: $bgGrey;
+    &__image {
+        display: block;
+        width: 85%;
+        border: 9px solid white;
+        outline: 1px solid #ddd;
+        background-color: $bgBlack-3;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+}
+.carousel {
+    margin: 0 auto;
+}
+
+.middle-border {
+    height: 1px;
+    background-color: #e2e2e2;
+    border: none;
+}
+
+main {
+    padding: 50px 30px;
+    background-color: $colorWhite;
+    @media (max-width: 991px) {
+        padding-bottom: 0;
+    }
+}
+
+/* Service */
+.services {
+    @media (min-width: 767px) {
+        padding-bottom: 50px;
+    }
+    @include flexBoxRow();
+    align-content: space-between;
+}
+
+.service-item {
+    height: 200px;
+    @media (min-width: 768px) and (max-width: 991px) {
+        height: 280px;
+        @include flexBoxCol(space-between);
+    }
+    @include flexBoxRow();
+    text-align: center;
+    &__icon {
+        display: block;
+        height: 64px;
+        margin: 0 auto;
+    }
+    &__title {
+        width: 100%;
+        color: $colorGreen;
+        font-size: 18px;
+        line-height: 21.6px;
+        font-weight: 100;
+        letter-spacing: -.5px;
+    }
+    &__text {
+        color: #888;
+        font-size: 13px;
+        line-height: 20.8px;
+    }
+}
+
+/* Work */
+.latest-work {
+    padding-top: 50px;
+    @include flexBoxRow();
+}
+
+.project {
+    height: 330px;
+    @include flexBoxCol(space-between);
+    @media (min-width: 992px) {
+        align-items: unset;
+    }
+    @media (max-width: 575px) {
+        height: auto;
+    }
+    &__image {
+        display: block;
+        width: 100%;
+        border: 4px solid white;
+        outline: 1px solid #ddd;
+        background-color: $bgBlack-3;
+    }
+    &__title {
+        color: #444;
+        font-size: 14px;
+        line-height: 16.8px;
+        font-weight: 100;
+    }
+    &__text {
+        color: #878787;
+        font-size: 13px;
+        line-height: 20.8px;
+    }
+    &__link {
+        color: $colorGreen;
+        font-size: 13px;
+        line-height: 13px;
+        text-align: right;
+        @include linkHover();
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: $bgBlack-3;
+    padding: 40px 30px;
+    @include flexBoxRow();
+    @media (max-width: 991px) {
+        padding-bottom: 0;
+        flex-flow: wrap-reverse;
+    }
+    align-items: flex-start;
+    &__section {
+        width: calc(25% - 20px);
+        @include flexBoxCol(space-between);
+    }
+    &__title {
+        color: #666666;
+        font-size: 13px;
+        font-weight: 100;
+        line-height: 15.6px;
+        text-transform: uppercase;
+    }
+}
+
+.contact {
+    height: 170px;
+    color: #999;
+    font-weight: 100;
+    &__text {
+        font-size: 13px;
+        line-height: 20.8px;
+    }
+    &__details {
+        font-size: 12px;
+        line-height: 19.2px;
+    }
+}
+
+.quik-links {
+    height: 145px;
+    @media (min-width:576px) and (max-width: 991px) {
+        height: 170px;
+        justify-content: baseline;
+    }
+    &__links {
+        height: 115px;
+    }
+    &__link {
+        height: 30px;
+        padding: 7px 0;
+        border-bottom: 1px solid #484848;
+        color: #999;
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 14.4px;
+        @include linkHover();
+    }
+}
+
+.blog {
+    height: 165px;
+}
+.blog-post {
+    height: 130px;
+    @media (min-width: 576px) and (max-width: 767px) {
+        height: auto;
+    }
+    @include flexBoxCol(space-between);
+    color: #999;
+    &__title {
+        font-size: 13px;
+        line-height: 15.6px;
+    }
+    &__data {
+        font-size: 11px;
+        font-weight: 100;
+        line-height: 13.2px;
+    }
+    &__text {
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 19.2px;
+    }
+    &__link {
+        color: $colorGreen;
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 14.4px;
+        text-align: right;
+        @include linkHover();
+    }
+}
+
+.subscribe {
+    height: 155px;
+    @media (min-width:576px) and (max-width: 991px) {
+        height: 165px;
+        justify-content: baseline;
+    }
+}
+.subscribe-form{
+    height: 115px;
+    @include flexBoxCol(space-between);
+    &__input {
+        width: 200px;
+        height: 32px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: $bgBlack-1;
+        color: #999;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 100;
+        line-height: 20.58px;
+        &:focus {
+            color: $colorGreen;
+            box-shadow: 0 0 0 2px $colorGreen;
+            outline: none;
+        }
+    }
+    &__button {
+        width: 80px;
+        height: 32px;
+        padding: 6px;
+        border: none;
+        border-radius: 5px;
+        background-color: $bgBlack-1;
+        color: $colorGreen;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20.58px;
+        text-transform: uppercase;
+        cursor: pointer;
+        &:hover {
+            background-color: $colorGreen;
+            color: $colorWhite;
+        }
+    }
+}
+
+.copyrights {
+    padding: 25px 30px;
+    background-color: $bgBlack-2;
+    @include flexBoxRow();
+    &__text {
+        color: #737373;
+        font-size: 12px;
+        line-height: 14.4px;
+        &_right {
+            text-align: right;
+            @media (max-width: 767px) {
+                text-align: center;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        text-align: center;
+    }
+}
